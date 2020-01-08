@@ -1,0 +1,25 @@
+{
+  "name": "finance-watch-api",
+  "version": "1.0.0",
+  "description": "Stock Ticker Symbol Lookup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "debug": "nodemon --inspect=0.0.0.0 index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "sjdonado",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
