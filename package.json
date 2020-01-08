@@ -10,7 +10,7 @@
     "dev": "nodemon index.js"
   },
   "keywords": [
-    "node.js"
+    "nodejs"
   ],
   "author": "sjdonado",
   "license": "ISC",

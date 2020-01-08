@@ -1,6 +1,6 @@
 const http = require('http');
 const path = require('path');
-const url = require('url');
+const URL = require('url');
 const fs = require('fs');
 
 const { port, version } = require('./config');
@@ -29,7 +29,7 @@ function writeJSONResponse(res, data = { err: NOT_FOUND_MESSAGE }, statusCode = 
 }
 
 function app(req, res) {
-  const { pathname, query } = url.parse(req.url, true);
+  const { pathname, query } = URL.parse(req.url, true);
   const [requestedVersion, apiPath] = pathname.substring(1).split('/');
 
   if (requestedVersion !== version) {
@@ -44,7 +44,6 @@ function app(req, res) {
     writeJSONResponse(res);
     return;
   }
-
   selectedRoute
     .call({ query }, (data, statusCode = 200) => writeJSONResponse(res, data, statusCode));
 }
