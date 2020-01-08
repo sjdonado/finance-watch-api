@@ -4,7 +4,7 @@ const URL = require('url');
 /**
  * Fetch data from url
  * @param {String} url
- * @param {{ 'GET' || 'POST' }} method
+ * @param {('GET'|'POST')} method
  * @param {Object} data
  * @returns {Promise}
  */
@@ -38,11 +38,15 @@ const fetch = (url, method, data = {}) => new Promise((resolve, reject) => {
     });
 
     res.on('end', () => {
-      resolve({
-        headers: res.headers,
-        statusCode: res.statusCode,
-        data: rawData ? JSON.parse(rawData) : null,
-      });
+      try {
+        resolve({
+          headers: res.headers,
+          statusCode: res.statusCode,
+          data: JSON.parse(rawData),
+        });
+      } catch (err) {
+        reject(new Error(rawData));
+      }
     });
   });
 

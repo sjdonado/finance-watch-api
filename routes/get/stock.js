@@ -3,7 +3,8 @@ const IEXCloudAPI = require('../../services/IEXCloudAPI');
 const stockRoute = async ({ query }, res) => {
   const { symbol } = query;
   if (!symbol) {
-    res('Query param symbol is required', 400);
+    res({ err: 'Query param symbol is required' }, 400);
+    return;
   }
   const iexCloudApi = new IEXCloudAPI('stock');
 
@@ -22,7 +23,7 @@ const stockRoute = async ({ query }, res) => {
       latestCompanyNews,
     });
   } catch (err) {
-    res(err.message, err.code);
+    res({ err: err.message }, err.code);
   }
 };
 
