@@ -1,11 +1,15 @@
 # FinanceWatch API
 > Stock Ticker Symbol Lookup
 
-## How to run?
+## Curl example
 
 ```shell
-  npm run start
+  curl "http://localhost:3000/v1/stock?symbol=AAPL"
 ```
+
+## How to run?
+* Development: `npm install && npm run dev`
+* Production: `npm start`
 
 ## Routes
 
@@ -64,9 +68,4 @@
     ]
   }
 }
-
-## Curl example
-
-```shell
-  curl "http://localhost:3000/v1/stock?symbol=AAPL"
 ```
