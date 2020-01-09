@@ -1,11 +1,9 @@
 # FinanceWatch API
 > Stock Ticker Symbol Lookup
 
-## Curl example
-
-```shell
-  curl "http://localhost:3000/v1/stock?symbol=AAPL"
-```
+## Setup
+* Go to https://iexcloud.io/ and get an API token
+* Go to config folder and set the IEXCloud.token value
 
 ## How to run?
 * Development: `npm install && npm run dev`
@@ -17,8 +15,15 @@
 | :-----------------------| :------------------------| :--------------------------------|:--------------------
 | GET                     | PUBLIC                   | /v1/stock                        | symbol *required
 
+## Curl example
+
+```shell
+  curl "http://localhost:3000/v1/stock?symbol=AAPL"
+```
+
 #### Error response
 * http://localhost:3000/v1/
+`Status code 404`
 ```json
 {
   "data": {
@@ -28,6 +33,7 @@
 ```
 
 * http://localhost:3000/v1/stock
+`Status code 400`
 ```json
 {
   "data": {
@@ -37,6 +43,7 @@
 ```
 
 * http://localhost:3000/v1/stock?symbol=test
+`Status code 400`
 ```json
 {
   "data": {
@@ -47,6 +54,7 @@
 
 #### Success response
 * http://localhost:3000/v1/stock?symbol=AAPL
+`Status code 200`
 ```json
 {
   "data": {

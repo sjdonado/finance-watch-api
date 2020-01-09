@@ -23,7 +23,7 @@ const stockRoute = async ({ query }, res) => {
       latestCompanyNews,
     });
   } catch (err) {
-    res({ err: err.message }, err.code);
+    res({ err: err.message }, 400);
   }
 };
 
